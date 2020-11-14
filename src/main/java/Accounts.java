@@ -1,6 +1,6 @@
-public class Accounts extends PrimaryUserOptionsMenu {
-    private UsersAccountInfo userAccount;
-    private Console console = new Console();
+public class Accounts {
+    private UserProfiles userAccount;
+    private ATMConsole ATMConsole = new ATMConsole();
     private Users currentUser;
     private Double balance;
 
