@@ -9,7 +9,6 @@ public class Accounts extends PrimaryUserOptionsMenu {
 
     public void withdraw() {
     }
-
     public void transfer() {
     }
 

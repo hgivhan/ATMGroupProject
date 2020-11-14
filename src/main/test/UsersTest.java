@@ -36,6 +36,6 @@ public class UsersTest {
     private Users currentUser;
     private Console console = new Console();
     private boolean atmIsOn;
-    private Users users = new Users();
+//    private Users users = new Users();
 
 }
