@@ -6,7 +6,7 @@ Week 2 project: ATM Simulator
 Every feature must have corresponding unit tests
 Tests should demonstrate proper behavior, and proper handling of misuse (eg. attempts to deposit/transfer/withdraw negative amounts
 
-- User interface: CLI (Command line interface) Only
+- Users interface: CLI (Command line interface) Only
   - Direct Input
   - Numbered options (instead of on-screen buttons)
   - ASCII art welcome but not required

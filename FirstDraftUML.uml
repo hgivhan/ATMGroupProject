@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="707.9204545454545" y="651.0">Savings</node>
+    <node x="207.0" y="380.5">Memory</node>
+    <node x="513.5" y="606.0">Users</node>
+    <node x="985.4204545454545" y="651.0">Checking</node>
+    <node x="434.0" y="281.0">UsersAccountInfo</node>
+    <node x="0.0" y="347.0">Console</node>
+    <node x="12.5" y="639.0">ATM</node>
+    <node x="9.0" y="776.0">Main</node>
+    <node x="785.3522727272729" y="259.0">Accounts</node>
+    <node x="326.6704545454545" y="0.0">PrimaryUserOptionsMenu</node>
+    <node x="839.4204545454545" y="651.0">Investment</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="Accounts" target="PrimaryUserOptionsMenu">
+      <point x="0.0" y="-148.5" />
+      <point x="908.8522727272729" y="229.0" />
+      <point x="549.7954545454545" y="229.0" />
+      <point x="95.625" y="104.5" />
+    </edge>
+    <edge source="Savings" target="Accounts">
+      <point x="0.0" y="-15.0" />
+      <point x="759.4204545454545" y="581.0" />
+      <point x="826.5189393939395" y="581.0" />
+      <point x="-82.33333333333337" y="148.5" />
+    </edge>
+    <edge source="UsersAccountInfo" target="PrimaryUserOptionsMenu">
+      <point x="0.0" y="-126.5" />
+      <point x="596.0" y="239.0" />
+      <point x="486.0454545454545" y="239.0" />
+      <point x="31.875" y="104.5" />
+    </edge>
+    <edge source="Users" target="UsersAccountInfo">
+      <point x="0.0" y="-60.0" />
+      <point x="0.0" y="126.5" />
+    </edge>
+    <edge source="ATM" target="Console">
+      <point x="0.0" y="-27.0" />
+      <point x="0.0" y="60.5" />
+    </edge>
+    <edge source="Memory" target="PrimaryUserOptionsMenu">
+      <point x="0.0" y="-27.0" />
+      <point x="310.5" y="239.0" />
+      <point x="422.2954545454545" y="239.0" />
+      <point x="-31.875" y="104.5" />
+    </edge>
+    <edge source="Console" target="PrimaryUserOptionsMenu">
+      <point x="0.0" y="-60.5" />
+      <point x="93.5" y="229.0" />
+      <point x="358.5454545454545" y="229.0" />
+      <point x="-95.625" y="104.5" />
+    </edge>
+    <edge source="Checking" target="Accounts">
+      <point x="0.0" y="-15.0" />
+      <point x="1040.9204545454545" y="581.0" />
+      <point x="991.1856060606061" y="581.0" />
+      <point x="82.33333333333326" y="148.5" />
+    </edge>
+    <edge source="Main" target="ATM">
+      <point x="0.0" y="-27.0" />
+      <point x="0.0" y="27.0" />
+    </edge>
+    <edge source="Investment" target="Accounts">
+      <point x="0.0" y="-15.0" />
+      <point x="902.4204545454545" y="581.0" />
+      <point x="908.8522727272729" y="581.0" />
+      <point x="0.0" y="148.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.7684301821335646" x="419.0" y="556.5" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+    <Category>Inner Classes</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
