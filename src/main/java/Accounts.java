@@ -1,5 +1,5 @@
 public class Accounts {
-    private UserProfiles userAccount;
+    private Profile userAccount;
     private ATMConsole ATMConsole = new ATMConsole();
     private Users currentUser;
     private Double balance;
