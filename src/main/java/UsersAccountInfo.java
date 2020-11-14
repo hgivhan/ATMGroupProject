@@ -1,9 +1,6 @@
-import com.sun.tools.internal.xjc.reader.xmlschema.bindinfo.BIConversion;
-
 import java.util.Scanner;
 
-public class UsersAccountInfo extends PrimaryUserOptionsMenu {
-    private Console console = new Console();
+public class UsersAccountInfo {
     private String name;
     private Integer debitCardNumber;
     private Integer pinNumber;
