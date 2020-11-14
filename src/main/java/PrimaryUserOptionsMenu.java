@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class PrimaryUserOptionsMenu {
     private Users currentLoggedInUser;
-    private UserProfiles listOfUsers;
+    private Profile listOfUsers;
 
     public void runMainUserOptionsMenu(Scanner scanner) {
         boolean powerOn = true;
