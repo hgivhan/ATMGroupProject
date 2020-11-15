@@ -9,6 +9,8 @@ public class ATMConsole {
 
     public ATMConsole(Scanner scanner) {
         this.scanner = scanner;
+        this.userManager = new UserManager(scanner);
+        this.primaryUserOptionsMenu = new PrimaryUserOptionsMenu(scanner);
     }
 
     public static boolean isAtmPowerOn() {
@@ -20,9 +22,7 @@ public class ATMConsole {
     }
 
     public void runCLIMenu() {
-        PrimaryUserOptionsMenu primaryUserOptionsMenu = new PrimaryUserOptionsMenu();
-        UserManager userManager = new UserManager();
-
+        Users currentActiveUser;
         System.out.println("Welcome to C3's ATM.\n" +
                 "Please select from an option below.");
         while(atmPowerOn) {
@@ -39,8 +39,8 @@ public class ATMConsole {
                     int input = scanner.nextInt();
                     switch (input) {
                         case 1:
-                            userManager.switchUser();
-                            primaryUserOptionsMenu.runMainUserOptionsMenu();
+                            currentActiveUser = userManager.switchUser();
+                            primaryUserOptionsMenu.runMainUserOptionsMenu(currentActiveUser);
                             break;
                         case 2:
                             userManager.createNewUser();
