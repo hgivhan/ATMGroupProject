@@ -1,6 +1,5 @@
 public class Accounts extends PrimaryUserOptionsMenu {
     private UsersAccountInfo userAccount;
-    private Console console = new Console();
     private Users currentUser;
     private Double balance;
 

@@ -3,7 +3,6 @@ import org.junit.Test;
 import java.util.HashSet;
 
 public class UsersAccountInfoTest {
-    private Console console = new Console();
     private String name;
     private Integer debitCardNumber;
     private Integer pinNumber;
