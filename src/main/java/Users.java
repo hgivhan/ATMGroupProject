@@ -38,12 +38,10 @@ public class Users {
     }
 
     public List<String> getTransactionHistory() {
-
         return transactionHistory;
     }
 
     public void setTransactionHistory(List<String> transactionHistory) {
-
         this.transactionHistory = transactionHistory;
     }
 
