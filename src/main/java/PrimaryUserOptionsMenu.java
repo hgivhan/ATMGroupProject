@@ -2,12 +2,13 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class PrimaryUserOptionsMenu {
-    private Users currentLoggedInUser;
-    private Profile listOfUsers;
+    private Scanner scanner;
+    private Users currentActiveUser;
+    Accounts accounts;
 
-    public void runMainUserOptionsMenu(Scanner scanner) {
+    public void runMainUserOptionsMenu() {
         boolean powerOn = true;
-        System.out.println("\nYou have successfully logged into <Username>'s profile.\n");
+        System.out.println("\nYou have successfully logged into " + this.currentActiveUser + "'s profile.\n");
         while (ATMConsole.isAtmPowerOn() && powerOn) {
             System.out.println("\n" +
                     "Please select from the following options:\n" +
@@ -21,7 +22,7 @@ public class PrimaryUserOptionsMenu {
                 int input = scanner.nextInt();
                 switch(input) {
                     case 1:
-                        System.out.println("account menu");
+                        accounts.runAccountMenuOptions();
                         break;
                     case 2:
                         System.out.println("user profile");
