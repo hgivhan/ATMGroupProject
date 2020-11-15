@@ -70,11 +70,14 @@ public class Accounts {
                                 "3 - Investment Account");
                         int newAccountChoice = scanner.nextInt();
                         if (newAccountChoice == 1) {
-                            Checking checking = new Checking(currentActiveUser);
+                            checking = new Checking(currentActiveUser);
+                            currentActiveUser.setChecking(checking);
                         } else if (newAccountChoice == 2) {
-                            Savings savings = new Savings(currentActiveUser);
+                            savings = new Savings(currentActiveUser);
+                            currentActiveUser.setSavings(savings);
                         } else {
-                            Investment investment = new Investment(currentActiveUser);
+                            investment = new Investment(currentActiveUser);
+                            currentActiveUser.setInvestment(investment);
                         }
                         break;
                     case 5:
