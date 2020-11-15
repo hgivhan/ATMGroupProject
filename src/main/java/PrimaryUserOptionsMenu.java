@@ -3,13 +3,19 @@ import java.util.Scanner;
 
 public class PrimaryUserOptionsMenu {
     private Scanner scanner;
-    private Users currentActiveUser;
     Accounts accounts;
 
-    public void runMainUserOptionsMenu() {
+    public PrimaryUserOptionsMenu(Scanner scanner) {
+        this.scanner = scanner;
+    }
+
+    public void runMainUserOptionsMenu(Users currentActiveUser) {
         boolean powerOn = true;
-        System.out.println("\nYou have successfully logged into " + this.currentActiveUser + "'s profile.\n");
+        System.out.println("\nYou have successfully logged into " + currentActiveUser.getUsername() + "'s profile.\n");
         while (ATMConsole.isAtmPowerOn() && powerOn) {
+
+            this.accounts = new Accounts(scanner, currentActiveUser, 0.0);
+
             System.out.println("\n" +
                     "Please select from the following options:\n" +
                     "1 - Access Account Menu\n" +
