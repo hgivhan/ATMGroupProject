@@ -5,46 +5,47 @@ import java.util.Scanner;
 public class UserManager {
     private Scanner scanner;
     private List<Users> userList;
-    private Users currentActiveUser;
 
-    Users users = new Users();
-
-    public void setCurrentActiveUser(Users currentActiveUser) {
-        this.currentActiveUser = currentActiveUser;
-    }
-
-    public Users getCurrentActiveUser() {
-        return currentActiveUser;
+    public UserManager(Scanner scanner) {
+        this.scanner = scanner;
+        this.userList = new ArrayList<>();
     }
 
     public void addUsername(Users currentActiveUser) {
         System.out.println("Please provide a username you would like to use:");
-        users.setUsername(scanner.nextLine());
+        currentActiveUser.setUsername(scanner.nextLine());
     }
 
     public void addPassword(Users currentActiveUser) {
         System.out.println("Please provide a password for your profile:");
-        users.setPassword(scanner.nextLine());
+        currentActiveUser.setPassword(scanner.nextLine());
     }
 
     public void addPinNumber(Users currentActiveUser) {
         System.out.println("Please provide a pin for any accounts you open with C3's ATM");
-        users.setPinNumber(scanner.nextInt());
+        currentActiveUser.setPinNumber(scanner.nextInt());
     }
 
-    public void createNewUser() {
-        userList.add(new Users(scanner.nextLine()));
-        System.out.println("Thank you for choosing to create a new User Profile with C3's ATM.\n");
-        addPassword(userList.get(userList.size() - 1));
-        addPinNumber(userList.get(userList.size() - 1));
+    public Users createNewUser() {
+        System.out.println("Please provide a username you would like to use:");
+        String username = scanner.next();
+        System.out.println("Please provide a password for your profile:");
+        String password = scanner.next();
+        System.out.println("Please provide a pin for any accounts you open with C3's ATM");
+        Integer pinNumber = scanner.nextInt();
+
+        Users currentActiveUser = new Users(username, password, pinNumber);
+        this.userList.add(currentActiveUser);
+        return currentActiveUser;
     }
 
-    public void switchUser() {
+    public Users switchUser() {
+        Users currentActiveUser = null;
         System.out.println("Welcome to the User-Selection-Menu.\n" +
                 "Please enter your username.");
-        String username = scanner.nextLine();
+        String username = scanner.next();
         System.out.println("Please enter your password.");
-        String password = scanner.nextLine();
+        String password = scanner.next();
         for (Users user : userList) {
             String currentName = user.getUsername();
             String currentPassword = user.getPassword();
@@ -52,17 +53,13 @@ public class UserManager {
             boolean isCorrectPassword = currentPassword.equals(password);
             boolean isValid = isCorrectName && isCorrectPassword;
             if (isValid) {
-                this.currentActiveUser = user;
-            } else {
-                createNewUser();
+                currentActiveUser = user;
             }
         }
-    }
-
-
-    public UserManager() {
-        this.userList = new ArrayList<>();
-        this.currentActiveUser = null;
+        if (currentActiveUser == null) {
+            currentActiveUser = createNewUser();
+        }
+        return currentActiveUser;
     }
 
 
@@ -107,17 +104,17 @@ public class UserManager {
 //        String userInput = console.getStringInput("[ deposit, withdrawal, delete]");
 //    }
 
-    public void accessUsersMenu() {
-        System.out.println("Welcome to the User-Menu.");
-        System.out.println("From here, you can select any of the following options:");
-        System.out.println("[ switch user, update account ]");
-        String menuSelection = scanner.nextLine();
-        if (menuSelection.equalsIgnoreCase("switch user")) {
-            switchUser();
-        } else if (menuSelection.equalsIgnoreCase("update account")) {
-            updateAccount(currentActiveUser);
-        }
-    }
+//    public void accessUsersMenu() {
+//        System.out.println("Welcome to the User-Menu.");
+//        System.out.println("From here, you can select any of the following options:");
+//        System.out.println("[ switch user, update account ]");
+//        String menuSelection = scanner.nextLine();
+//        if (menuSelection.equalsIgnoreCase("switch user")) {
+//            switchUser();
+//        } else if (menuSelection.equalsIgnoreCase("update account")) {
+//            updateAccount(currentActiveUser);
+//        }
+//    }
 
     public void updateAccount(Users currentActiveUser) {
         addUsername(currentActiveUser);
