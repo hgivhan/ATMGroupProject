@@ -1,4 +1,4 @@
-public class Memory extends PrimaryUserOptionsMenu {
+public class Memory {
     public void transactionHistory() {
 
     }

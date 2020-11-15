@@ -1,5 +1,6 @@
 import org.junit.Assert;
 import org.junit.Test;
+
 import java.util.HashSet;
 
 public class UsersAccountInfoTest {
@@ -27,11 +28,9 @@ public class UsersAccountInfoTest {
         Assert.assertEquals(expectedCardNumber, actualCardNumber);
         Assert.assertEquals(expectedPin, actualPin);
     }
-
     @Test
     public void createNewUserTest(){
         // Given
-
         // When
         // Then
     }
@@ -65,5 +64,4 @@ public class UsersAccountInfoTest {
         // When
         // Then
     }
-
 }

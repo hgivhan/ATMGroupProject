@@ -1,9 +1,13 @@
+import java.util.Scanner;
+
 /**
  * Created by iyasuwatts on 10/17/17.
  */
-public class Main extends ATM {
+public class Main {
 
     public static void main(String[] args){
-        
+        Scanner scanner = new Scanner(System.in);
+        ATMConsole atm = new ATMConsole();
+        atm.runCLIMenu(scanner);
     }
 }

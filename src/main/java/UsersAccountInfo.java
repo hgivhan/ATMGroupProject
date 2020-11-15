@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 
 public class UsersAccountInfo {
@@ -23,7 +24,6 @@ public class UsersAccountInfo {
         Users newUser = new Users(userName, password);
         listOfUsers.put(userName, newUser);
     }
-
     public void deleteUser() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter your username");

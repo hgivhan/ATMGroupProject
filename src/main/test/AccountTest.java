@@ -5,7 +5,8 @@ import static org.junit.Assert.assertEquals;
 
 
 // Test the expected Account class from ATM.
-public class AccountTest {
+//public class AccountTest {
+
 //
 //    @Test
 //    public void testA0() {
@@ -76,6 +77,7 @@ public class AccountTest {
 //        assertEquals(10.0, a.balance(), 0.0001);
 //        assertEquals(0.0, b.balance(), 0.0001);
 //    }
+//
+//
+//}
 
-
-}

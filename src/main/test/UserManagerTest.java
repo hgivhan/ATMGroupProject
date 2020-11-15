@@ -9,10 +9,8 @@ public class UserManagerTest {
         Users userToBeCreated = new Users(null, null);
         boolean hasUser = userManager.contains(userToBeCreated);
         Assert.assertFalse(hasUser);
-
         // when
         userManager.addUser(userToBeCreated);
-
         // then
         Assert.assertTrue(userManager.contains(userToBeCreated));
     }

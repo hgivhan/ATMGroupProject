@@ -10,11 +10,10 @@ public final class IOConsole {
         this.input = new Scanner(in);
         this.output = out;
     }
-
+  
     public void print(String val, Object... args) {
         output.format(val, args);
     }
-
     public void println(String val, Object... vals) {
         print(val + "\n", vals);
     }
@@ -47,7 +46,6 @@ public final class IOConsole {
             return getLongInput(prompt, args);
         }
     }
-
     public Integer getIntegerInput(String prompt, Object... args) {
         return getLongInput(prompt, args).intValue();
     }

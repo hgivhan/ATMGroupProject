@@ -6,7 +6,6 @@ public class Users {
     private String password;
     private List<Profile> profileList;
 
-
     public Users(String name, String password) {
         this.username = name;
         this.password = password;
@@ -40,6 +39,7 @@ public class Users {
     public void addAccount(Profile profile) {
         profileList.add(profile);
     }
+
 
     public Profile getAccount(Long enteredId) {
         for (Profile profile : getProfileList()) {
