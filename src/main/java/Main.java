@@ -7,7 +7,7 @@ public class Main {
 
     public static void main(String[] args){
         Scanner scanner = new Scanner(System.in);
-        ATMConsole atm = new ATMConsole();
-        atm.runCLIMenu(scanner);
+        ATMConsole atm = new ATMConsole(scanner);
+        atm.runCLIMenu();
     }
 }
