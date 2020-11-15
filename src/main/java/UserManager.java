@@ -1,14 +1,17 @@
 import java.util.ArrayList;
 import java.util.List;
+
 public class UserManager {
     private List<Users> userList;
     private Users currentActiveUser;
     private IOConsole console;
+
     public UserManager() {
         this.userList = new ArrayList<>();
         this.console = new IOConsole(System.in, System.out);
         this.currentActiveUser = null;
     }
+
     public void accessAccountMenu() {
         console.println("Welcome to the Account-Menu.");
         console.println("From here, you can select any of the following:");
@@ -20,6 +23,7 @@ public class UserManager {
             Profile profile = new Profile(null, null, null, null);
         }
     }
+
     public void selectPreexistingAccount() {
         String accountIdList = "";
         for (Profile profile : currentActiveUser.getProfileList()) {
@@ -34,11 +38,13 @@ public class UserManager {
             accessModifyAccountMenu();
         }
     }
+
     public void accessModifyAccountMenu() {
         console.println("Welcome to the Account-Modification-Menu.");
         console.println("From here, you can select any of the following options:");
         String userInput = console.getStringInput("[ deposit, withdrawal, delete]");
     }
+
     public void accessUsersMenu() {
         console.println("Welcome to the User-Menu.");
         console.println("From here, you can select any of the following options:");
@@ -51,6 +57,7 @@ public class UserManager {
             accessAccountMenu();
         }
     }
+
     public void switchUser() {
         console.println("Welcome to the User-Selection-Menu.");
         String username = console.getStringInput("Please enter your username.");
@@ -66,17 +73,23 @@ public class UserManager {
             }
         }
     }
+
     public void updateAccount() {
+
     }
+
     public Users getCurrentActiveUser() {
         return currentActiveUser;
     }
+
     public void addUser(Users userToBeAdded) {
         userList.add(userToBeAdded);
     }
+
     public boolean contains(Users userToBeCreated) {
         return userList.contains(userToBeCreated);
     }
+
     public void deleteUser(Users userToBeRemoved) {
         userList.remove(userToBeRemoved);
     }

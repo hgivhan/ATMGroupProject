@@ -10,19 +10,19 @@ Tests should demonstrate proper behavior, and proper handling of misuse (eg. att
   - Direct Input
   - Numbered options (instead of on-screen buttons)
   - ASCII art welcome but not required
-- Must support account types:
+- Must support profile types:
   - Checking
   - Savings
   - Investment
-- Account Actions
+- Profile Actions
   - Withdraw from acct
   - Deposit to acct
   - Transfer across accounts (self)
-  - Open new account
-  - Close account (must be empty)
+  - Open new profile
+  - Close profile (must be empty)
   - Print transaction history
   - Check balance
-  - **Challenge:** Transfer to another user's account (but not from)
+  - **Challenge:** Transfer to another user's profile (but not from)
 - Support multiple users
   - Users have associated accounts
   - Can create new user

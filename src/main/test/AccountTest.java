@@ -1,13 +1,12 @@
 
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 
 import static org.junit.Assert.assertEquals;
 
 
 // Test the expected Account class from ATM.
 //public class AccountTest {
+
 //
 //    @Test
 //    public void testA0() {
@@ -81,3 +80,4 @@ import static org.junit.Assert.assertEquals;
 //
 //
 //}
+

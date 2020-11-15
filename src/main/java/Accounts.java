@@ -2,8 +2,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Accounts extends PrimaryUserOptionsMenu {
-    private UsersAccountInfo userAccount; // this will be an object of objects, each instance field will be an account type
-    private Console console = new Console();
+    private UsersAccountInfo userAccount;
     private Users currentUser;
     private Double balance;
 
@@ -144,23 +143,4 @@ public class Accounts extends PrimaryUserOptionsMenu {
         }
         // ***** update user transaction history and balance for this user in the appropriate accounts *****
         console.println("Your transfer is complete. Your current balance in this account is $%.2f", this.balance);
-
-    }
-
-    public void createNewAccount() {
-    }
-
-    public void deleteAccount() {
-    }
-
-    public void checkAccountBalance() {
-        console.println("Your account's balance is $%.2f", this.balance);
-    }
-
-    public void returnToLogin() {
-    }
-
-    public void chooseAccount() {
-    }
-}
 

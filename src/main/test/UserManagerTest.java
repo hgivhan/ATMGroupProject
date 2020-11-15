@@ -1,5 +1,6 @@
 import org.junit.Assert;
 import org.junit.Test;
+
 public class UserManagerTest {
     @Test
     public void testAdd() {
@@ -13,6 +14,7 @@ public class UserManagerTest {
         // then
         Assert.assertTrue(userManager.contains(userToBeCreated));
     }
+
     @Test
     public void testRemove() {
         // given
@@ -21,8 +23,10 @@ public class UserManagerTest {
         userManager.addUser(userToBeCreated);
         boolean hasUser = userManager.contains(userToBeCreated);
         Assert.assertTrue(hasUser);
+
         // when
         userManager.deleteUser(userToBeCreated);
+
         // then
         Assert.assertFalse(userManager.contains(userToBeCreated));
     }
