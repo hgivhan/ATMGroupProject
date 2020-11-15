@@ -2,12 +2,12 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Accounts extends PrimaryUserOptionsMenu {
-    private UsersAccountInfo userAccount; // this will be an object of objects, each instance field will be an account type
-    private Console console = new Console();
+    private UserManager userAccount; // this will be an object of objects, each instance field will be an account type
+    private IOConsole console = new IOConsole(null ,null);
     private Users currentUser;
     private Double balance;
 
-    public Accounts(UsersAccountInfo userAccount, Users currentUser, Double balance) {
+    public Accounts(UserManager userAccount, Users currentUser, Double balance) {
         this.userAccount = userAccount;
         this.currentUser = currentUser;
         this.balance = balance;

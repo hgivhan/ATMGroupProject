@@ -1,6 +1,6 @@
 public class Checking extends Accounts{
 
-    public Checking(UsersAccountInfo userAccount, Users currentUser, Double balance) {
+    public Checking(UserManager userAccount, Users currentUser, Double balance) {
         super(userAccount, currentUser, balance);
     }
 

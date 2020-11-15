@@ -1,6 +1,6 @@
 public class Savings extends Accounts {
 
-    public Savings (UsersAccountInfo userAccount, Users currentUser, Double balance) {
+    public Savings (UserManager userAccount, Users currentUser, Double balance) {
         super(userAccount, currentUser, balance);
     }
 

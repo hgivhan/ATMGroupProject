@@ -10,11 +10,19 @@ public class UserManager {
     Scanner scanner = new Scanner(System.in);
     Users users = new Users();
 
+    public UserManager() {
+        this.userList = new ArrayList<>();
+        this.console = new IOConsole(System.in, System.out);
+        this.currentActiveUser = null;
+    }
+
     public void setCurrentActiveUser(Users currentActiveUser) {
+
         this.currentActiveUser = currentActiveUser;
     }
 
     public Users getCurrentActiveUser() {
+
         return currentActiveUser;
     }
 
@@ -62,11 +70,7 @@ public class UserManager {
     }
 
 
-    public UserManager() {
-        this.userList = new ArrayList<>();
-        this.console = new IOConsole(System.in, System.out);
-        this.currentActiveUser = null;
-    }
+
 
 
     public void deleteUser(Users currentActiveUser) {

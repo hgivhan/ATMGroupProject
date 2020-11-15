@@ -1,6 +1,6 @@
 public class Investment extends Accounts{
 
-    public Investment(UsersAccountInfo userAccount, Users currentUser, Double balance) {
+    public Investment(UserManager userAccount, Users currentUser, Double balance) {
         super(userAccount, currentUser, balance);
     }
 
