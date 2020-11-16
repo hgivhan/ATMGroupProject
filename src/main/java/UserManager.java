@@ -47,12 +47,11 @@ public class UserManager {
             boolean isValid = isCorrectName && isCorrectPassword;
             if (isValid) {
                 currentActiveUser = user;
-            } else {
-                System.out.println("\nIncorrect user or password, please try again.");
             }
-        }
-        if (currentActiveUser == null) {
-            currentActiveUser = createNewUser();
+            if (currentActiveUser == null) {
+                System.out.println("\nIncorrect user or password, please try again.");
+                currentActiveUser = createNewUser();
+            }
         }
         return currentActiveUser;
     }
@@ -63,6 +62,7 @@ public class UserManager {
         String deletionPassword = scanner.nextLine();
         if (currentActiveUser.getPassword().equals(deletionPassword)) {
             userList.remove(currentActiveUser);
+            System.out.println("User profile deleted.");
         }
     }
 }
