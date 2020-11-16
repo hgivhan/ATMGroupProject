@@ -1,83 +1,70 @@
-
-import org.junit.Rule;
+import org.junit.Assert;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 
-import static org.junit.Assert.assertEquals;
+public class AccountsTest {
+    @Test
+    public void testCheckingAccount() {
+        Users expectedCurrentActiveUser = new Users("Amanda", "ILoveJUnitTesting");
+        Double expectedBalance = 1213.0;
+        expectedCurrentActiveUser.setChecking(new Checking(0));
+        expectedCurrentActiveUser.getChecking().setBalance(expectedBalance);
+        Double actualBal = expectedCurrentActiveUser.getChecking().getBalance();
+        Assert.assertEquals(expectedBalance, actualBal);
+    }
 
+    @Test
+    public void testSavingsAccount() {
+        Users expectedCurrentActiveUser = new Users("Peter", "Kutchen3");
+        Double expectedBalance = 10000.00;
+        expectedCurrentActiveUser.setSavings(new Savings(0));
+        expectedCurrentActiveUser.getSavings().setBalance(expectedBalance);
+        Double actualBal = expectedCurrentActiveUser.getSavings().getBalance();
+        Assert.assertEquals(expectedBalance, actualBal);
+    }
 
-// Test the expected Account class from ATM.
-//public class AccountTest {
-//
-//    @Test
-//    public void testA0() {
-//        Account a = new Account(0.0);
-//        assertEquals(0.0, a.balance(), 0.0001);
-//    }
-//
-//    @Test
-//    public void testA00() {
-//        Account a = new Account(10.0);
-//        assertEquals(10.0, a.balance(), 0.0001);
-//    }
-//
-//    @Test
-//    public void testA01() {
-//        Account a = new Account(0.0);
-//        assertEquals(true, a.closeAccount());
-//    }
-//
-//    @Test
-//    public void testA02() {
-//        Account a = new Account(10.0);
-//        assertEquals(false, a.closeAccount());
-//    }
-//
-//    @Test
-//    public void testA1() {
-//        Account a = new Account(0.0);
-//        a.deposit(100.0);
-//        assertEquals(100.0, a.balance(), 0.0001);
-//    }
-//
-//    @Test
-//    public void testA2() {
-//        Account a = new Account(10.0);
-//        a.deposit(100.0);
-//        assertEquals(110.0, a.balance(), 0.0001);
-//    }
-//
-//    @Test
-//    public void testA3() {
-//        Account a = new Account(200.0);
-//        Double actual = a.withdraw(100.0);
-//        assertEquals(100.0, actual, 0.0001);
-//    }
-//
-//    @Test
-//    public void testA4() {
-//        Account a = new Account(0.0);
-//        Double actual = a.withdraw(1.0);
-//        assertEquals(0.0, actual, 0.0001);
-//    }
-//
-//    @Test
-//    public void testA5() {
-//        Account a = new Account(10.0);
-//        Account b = new Account(0.0);
-//        a.transfer(b, 10.0);
-//        assertEquals(0.0, a.balance(), 0.0001);
-//        assertEquals(10.0, b.balance(), 0.0001);
-//    }
-//
-//    @Test
-//    public void testA6() {
-//        Account a = new Account(10.0);
-//        Account b = new Account(0.0);
-//        a.transfer(b, 100.0); // nothing should happen
-//        assertEquals(10.0, a.balance(), 0.0001);
-//        assertEquals(0.0, b.balance(), 0.0001);
-//    }
-//
-//
-//}
+    @Test
+    public void testInvestmentAccount() {
+        Users expectedCurrentActiveUser = new Users("Christian", "YouTasteLikeChicken");
+        Double expectedBalance = 450.0;
+        expectedCurrentActiveUser.setInvestment(new Investment(0));
+        expectedCurrentActiveUser.getInvestment().setBalance(expectedBalance);
+        Double actualBal = expectedCurrentActiveUser.getInvestment().getBalance();
+        Assert.assertEquals(expectedBalance, actualBal);
+    }
+
+    @Test
+    public void testAccountBalance() {
+        Accounts newAccount = new Accounts(0);
+        Double expectedBal = 11.40;
+        newAccount.setBalance(expectedBal);
+        Double actualBal = newAccount.getBalance();
+        Assert.assertEquals(expectedBal, actualBal);
+    }
+
+    @Test
+    public void testCheckingBalance() {
+        Checking newAccount = new Checking(0);
+        Double expectedBal = 450.0;
+        newAccount.setBalance(expectedBal);
+        Double actualBal = newAccount.getBalance();
+        Assert.assertEquals(expectedBal, actualBal);
+    }
+
+    @Test
+    public void testSavingsBalance() {
+        Savings newAccount = new Savings(0);
+        Double expectedBal = 2040.00;
+        newAccount.setBalance(expectedBal);
+        Double actualBal = newAccount.getBalance();
+        Assert.assertEquals(expectedBal, actualBal);
+    }
+
+    @Test
+    public void testInvestmentBalance() {
+        Investment newAccount = new Investment(0);
+        Double expectedBal = 230.0;
+        newAccount.setBalance(expectedBal);
+        Double actualBal = newAccount.getBalance();
+        Assert.assertEquals(expectedBal, actualBal);
+    }
+}
