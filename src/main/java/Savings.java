@@ -2,16 +2,16 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Savings extends Accounts {
-    private Scanner scanner;
-    public Savings(Scanner scanner, Users currentActiveUser, Double balance) {
-        super(scanner, currentActiveUser, balance);
+    public Savings(Scanner scanner, Double balance) {
+        super(scanner, balance);
     }
 
-    public Savings(Users currentActiveUser) {
-        super(currentActiveUser);
+    public Savings(double balance) {
+        super(balance);
     }
 
     public void savingsAccountOptions(Users currentActiveUser) {
+        Scanner scanner = new Scanner(System.in);
         boolean powerOn = true;
         while (ATMConsole.isAtmPowerOn() && powerOn) {
             System.out.println("\n" +
@@ -21,17 +21,17 @@ public class Savings extends Accounts {
                     "3 - Transfer from Savings Account\n" +
                     "4 - Savings Account Balance\n" +
                     "5 - Go Back to Account Options Menu\n" +
-                    "6 - Cancel Transaction" +
+                    "6 - Cancel Transaction\n" +
                     "---------------------------------\n" +
                     "Enter choice here: -> ");
             try {
-                try {
                     int input = scanner.nextInt();
                     switch (input) {
                         case 1:
                             System.out.println("Please indicate deposit amount:");
                             Double depositAmount = scanner.nextDouble();
                             currentActiveUser.getSavings().setBalance(currentActiveUser.getSavings().getBalance() + depositAmount);
+                            System.out.println("Deposit processed. New balance: $" + currentActiveUser.getSavings().getBalance());
                             currentActiveUser.getTransactionHistory().add("Deposit processed. New balance: $" + currentActiveUser.getSavings().getBalance());
                             break;
                         case 2:
@@ -43,8 +43,9 @@ public class Savings extends Accounts {
                                 continue;
                             } else {
                                 currentActiveUser.getSavings().setBalance(currentActiveUser.getSavings().getBalance() - withdrawalAmount);
+                                System.out.println("Withdrawal processed. New balance: $" + currentActiveUser.getSavings().getBalance());
+                                currentActiveUser.getTransactionHistory().add("Withdrawal processed. New balance: $" + currentActiveUser.getSavings().getBalance());
                             }
-                            currentActiveUser.getTransactionHistory().add("Withdrawal processed. New balance: $" + currentActiveUser.getSavings().getBalance());
                             break;
                         case 3:
                             System.out.println("Please indicate what account you would like to transfer too?\n" +
@@ -63,13 +64,15 @@ public class Savings extends Accounts {
                             if (transferInput == 1) {
                                 currentActiveUser.getChecking().setBalance(currentActiveUser.getChecking().getBalance() + transferAmount);
                                 currentActiveUser.getTransactionHistory().add("Transfer processed. New Checking balance: $" + currentActiveUser.getChecking().getBalance());
+                                System.out.println("\nTransfer Complete.");
                             } else {
                                 currentActiveUser.getInvestment().setBalance(currentActiveUser.getInvestment().getBalance() + transferAmount);
                                 currentActiveUser.getTransactionHistory().add("Transfer processed. New Investment balance: $" + currentActiveUser.getInvestment().getBalance());
+                                System.out.println("\nTransfer Complete.");
                             }
                             break;
                         case 4:
-                            System.out.println("Current Checking Account Balance: $" + currentActiveUser.getSavings().getBalance());
+                            System.out.println("\nCurrent Checking Account Balance: $" + currentActiveUser.getSavings().getBalance());
                             break;
                         case 5:
                             System.out.println("Returning to Account Options Menu");
@@ -85,10 +88,8 @@ public class Savings extends Accounts {
                             System.out.println("\n" + "Incorrect option chosen, please choose one of the menu options below.");
                             break;
                     }
-                } catch (NullPointerException e) {
-                    System.out.println(("\n" + "You do not have that type of account, please open that type of account to access select again"));
-                }
-            } catch (InputMismatchException e) {
+                } catch (InputMismatchException e) {
+                scanner.next();
                 System.out.println(("\n" + "Invalid selection, please choose again."));
             }
         }
