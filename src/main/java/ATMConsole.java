@@ -23,9 +23,9 @@ public class ATMConsole {
 
     public void runCLIMenu() {
         Users currentActiveUser;
-        System.out.println("Welcome to C3's ATM.\n" +
-                "Please select from an option below.");
-        while(atmPowerOn) {
+        Ascii.printAscii();
+        System.out.println("\nPlease select from an option below.");
+        while (atmPowerOn) {
             System.out.println("\n" +
                     "Please choose from the following options:\n" +
                     "1 - Login to your Personal Profile\n" +
@@ -35,39 +35,30 @@ public class ATMConsole {
                     "Enter choice here: -> ");
 
             try {
-                try {
-                    int input = scanner.nextInt();
-                    switch (input) {
-                        case 1:
-                            currentActiveUser = userManager.switchUser();
-                            primaryUserOptionsMenu.runMainUserOptionsMenu(currentActiveUser);
-                            break;
-                        case 2:
-                            userManager.createNewUser();
-                            break;
-                        case 3:
-                            System.out.println("You have canceled the transaction.\n" +
-                                    "Enjoy the rest of your day.");
-                            atmPowerOn = false;
-                            break;
-                        default:
-                            System.out.println("\n" + "Incorrect option chosen, please choose one of the menu options below.");
-                            break;
-                    }
-                }catch (NullPointerException e) {
-                    System.out.println(("\n" + "Either you do not have an account with C3's ATM, or your username or password was incorrect.\n" +
-                            "Please try again or create an account then try again."));
+                int input = scanner.nextInt();
+                switch (input) {
+                    case 1:
+                        currentActiveUser = userManager.loginUser();
+                        primaryUserOptionsMenu.runMainUserOptionsMenu(currentActiveUser);
+                        break;
+                    case 2:
+                        userManager.createNewUser();
+                        break;
+                    case 3:
+                        System.out.println("You have canceled the transaction.\n" +
+                                "Enjoy the rest of your day.");
+                        atmPowerOn = false;
+                        break;
+                    default:
+                        System.out.println("\n" + "Incorrect option chosen, please choose one of the menu options below.");
+                        break;
                 }
+            } catch (NullPointerException e) {
+                System.out.println(("\n" + "You do not have an account of that type with C3, please open an account of that nature."));
             } catch (InputMismatchException e) {
                 scanner.next();
                 System.out.println("\n" + "Incorrect option chosen, please choose one of the menu options below.");
             }
         }
-    }
-
-    public void userLogin() {
-    }
-
-    public void createNewUser() {
     }
 }
