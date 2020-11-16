@@ -3,29 +3,15 @@ import java.util.Scanner;
 
 public class Accounts {
     private Scanner scanner;
-    private Users currentActiveUser;
     private Double balance;
-    private Checking checking;
-    private Savings savings;
-    private Investment investment;
 
-    public Accounts(Scanner scanner, Users currentActiveUser, Double balance) {
+    public Accounts(Scanner scanner, Double balance) {
         this.scanner = scanner;
-        this.currentActiveUser = currentActiveUser;
         this.balance = balance;
     }
 
-    public Accounts(Users currentActiveUser) {
-        this.currentActiveUser = currentActiveUser;
+    public Accounts(double balance) {
         this.balance = 0.00;
-    }
-
-    public Users getCurrentActiveUser() {
-        return currentActiveUser;
-    }
-
-    public void setCurrentActiveUser(Users currentActiveUser) {
-        this.currentActiveUser = currentActiveUser;
     }
 
     public Double getBalance() {
@@ -36,7 +22,7 @@ public class Accounts {
         this.balance = balance;
     }
 
-    public void runAccountMenuOptions() {
+    public void runAccountMenuOptions(Users currentActiveUser) {
         boolean powerOn = true;
         while (ATMConsole.isAtmPowerOn() && powerOn) {
             System.out.println("\n" +
@@ -44,10 +30,11 @@ public class Accounts {
                     "1 - Checking Account Menu\n" +
                     "2 - Savings Account Menu\n" +
                     "3 - Investment Account Menu\n" +
-                    "4 - Open New Account\n" +
-                    "5 - Close an Account\n" +
-                    "6 - Go Back to Primary User Options Menu\n" +
-                    "7 - Cancel Transaction\n" +
+                    "4 - Print Transaction History\n" +
+                    "5 - Open New Account\n" +
+                    "6 - Close an Account\n" +
+                    "7 - Go Back to Primary User Options Menu\n" +
+                    "8 - Cancel Transaction\n" +
                     "---------------------------------\n" +
                     "Enter choice here: -> ");
 
@@ -55,32 +42,35 @@ public class Accounts {
                 int input = scanner.nextInt();
                 switch (input) {
                     case 1:
-                        checking.checkingAccountOptions(currentActiveUser);
+                        currentActiveUser.getChecking().checkingAccountOptions(currentActiveUser);
                         break;
                     case 2:
-                        savings.savingsAccountOptions(currentActiveUser);
+                        currentActiveUser.getSavings().savingsAccountOptions(currentActiveUser);
                         break;
                     case 3:
-                        investment.investmentAccountOptions(currentActiveUser);
+                        currentActiveUser.getInvestment().investmentAccountOptions(currentActiveUser);
                         break;
                     case 4:
-                        System.out.println("Please indicate which type of account you would like to create?\n" +
+                        System.out.println(currentActiveUser.getTransactionHistory().toString());
+                        break;
+                    case 5:
+                        System.out.println("\nPlease indicate which type of account you would like to create?\n" +
                                 "1 - Checking Account\n" +
                                 "2 - Savings Account\n" +
                                 "3 - Investment Account");
                         int newAccountChoice = scanner.nextInt();
                         if (newAccountChoice == 1) {
-                            checking = new Checking(currentActiveUser);
-                            currentActiveUser.setChecking(checking);
+                            currentActiveUser.setChecking(new Checking(0.00));
+                            System.out.println("\nThank you for opening a Checking Account with C3.");
                         } else if (newAccountChoice == 2) {
-                            savings = new Savings(currentActiveUser);
-                            currentActiveUser.setSavings(savings);
+                            currentActiveUser.setSavings(new Savings(0.00));
+                            System.out.println("\nThank you for opening a Savings Account with C3.");
                         } else {
-                            investment = new Investment(currentActiveUser);
-                            currentActiveUser.setInvestment(investment);
+                            currentActiveUser.setInvestment(new Investment(0.00));
+                            System.out.println("\nThank you for opening a Investment Account with C3.");
                         }
                         break;
-                    case 5:
+                    case 6:
                         System.out.println("Please indicate which type of account you would like to delete?\n" +
                                 "1 - Checking Account\n" +
                                 "2 - Savings Account\n" +
@@ -94,10 +84,10 @@ public class Accounts {
                             currentActiveUser.setInvestment(null);
                         }
                         break;
-                    case 6:
+                    case 7:
                         powerOn = false;
                         break;
-                    case 7:
+                    case 8:
                         System.out.println("You have canceled the transaction.\n" +
                                 "Enjoy the rest of your day.");
                         powerOn = false;
