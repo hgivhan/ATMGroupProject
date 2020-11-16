@@ -1,7 +1,7 @@
 import org.junit.Assert;
 import org.junit.Test;
 
-public class AccountsTest {
+public class AccountTest {
     @Test
     public void testCheckingAccount() {
         Users expectedCurrentActiveUser = new Users("Amanda", "ILoveJUnitTesting");
