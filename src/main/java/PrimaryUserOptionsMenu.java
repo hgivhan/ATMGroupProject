@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class PrimaryUserOptionsMenu {
     private Scanner scanner;
-    Accounts accounts;
+    private Accounts accounts;
 
     public PrimaryUserOptionsMenu(Scanner scanner) {
         this.scanner = scanner;
@@ -11,10 +11,10 @@ public class PrimaryUserOptionsMenu {
 
     public void runMainUserOptionsMenu(Users currentActiveUser) {
         boolean powerOn = true;
-        System.out.println("\nYou have successfully logged into " + currentActiveUser.getUsername() + "'s profile.\n");
+        System.out.println("\nYou have successfully logged into " + currentActiveUser.getUsername() + "'s profile.");
         while (ATMConsole.isAtmPowerOn() && powerOn) {
 
-            this.accounts = new Accounts(scanner, currentActiveUser, 0.0);
+            this.accounts = new Accounts(scanner, 0.0);
 
             System.out.println("\n" +
                     "Please select from the following options:\n" +
@@ -28,10 +28,10 @@ public class PrimaryUserOptionsMenu {
                 int input = scanner.nextInt();
                 switch(input) {
                     case 1:
-                        accounts.runAccountMenuOptions();
+                        accounts.runAccountMenuOptions(currentActiveUser);
                         break;
                     case 2:
-                        System.out.println("user profile");
+                        currentActiveUser.changeUserProfiles(currentActiveUser);
                         break;
                     case 3:
                         System.out.println("You have canceled the transaction.\n" +
@@ -49,11 +49,4 @@ public class PrimaryUserOptionsMenu {
             }
         }
     }
-
-    public void runAccountMenuOptions() {
-    }
-
-    public void runUserMenuOptions() {
-    }
-
 }
